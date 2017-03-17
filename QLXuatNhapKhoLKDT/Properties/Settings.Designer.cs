@@ -33,5 +33,16 @@ namespace QLXuatNhapKhoLKDT.Properties {
                 return ((string)(this["QL_XUATNHAPKHO_LKDTConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lightingwindows.vnso.vn\\MSSQLSERVER2014;Initial Catalog=ytnpjqvx_QL_X" +
+            "OSO_VIETLOTT;User ID=quanlyxosovietlott;Password=Ahng89di@@2")]
+        public string ytnpjqvx_QL_XOSO_VIETLOTTConnectionString {
+            get {
+                return ((string)(this["ytnpjqvx_QL_XOSO_VIETLOTTConnectionString"]));
+            }
+        }
     }
 }
