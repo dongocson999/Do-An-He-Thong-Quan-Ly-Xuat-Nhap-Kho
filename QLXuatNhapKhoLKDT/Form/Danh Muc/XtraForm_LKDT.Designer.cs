@@ -52,6 +52,7 @@
             this.btTaoMoi = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -78,7 +79,6 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -343,6 +343,7 @@
             this.btTaoMoi.Size = new System.Drawing.Size(63, 58);
             this.btTaoMoi.TabIndex = 12;
             this.btTaoMoi.Text = "Tạo Mới";
+            this.btTaoMoi.Click += new System.EventHandler(this.btTaoMoi_Click);
             // 
             // panelControl4
             // 
@@ -377,6 +378,13 @@
             this.layoutControl1.Size = new System.Drawing.Size(567, 238);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(384, 12);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(171, 21);
+            this.dateTimePicker1.TabIndex = 18;
             // 
             // simpleButton3
             // 
@@ -631,13 +639,6 @@
             this.layoutControlItem13.Size = new System.Drawing.Size(80, 26);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(384, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 21);
-            this.dateTimePicker1.TabIndex = 18;
             // 
             // layoutControlItem2
             // 
