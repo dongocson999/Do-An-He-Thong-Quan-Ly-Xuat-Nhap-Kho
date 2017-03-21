@@ -35,13 +35,13 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControl_DanhMucQuyCach = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.btXoa = new DevExpress.XtraEditors.SimpleButton();
-            this.btHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btChinhSua = new DevExpress.XtraEditors.SimpleButton();
             this.btTaoMoi = new DevExpress.XtraEditors.SimpleButton();
@@ -49,9 +49,9 @@
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtGhiChuQuyCach = new DevExpress.XtraEditors.TextEdit();
+            this.txTenQuyCach = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaQuyCach = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -71,7 +71,7 @@
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_DanhMucQuyCach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
@@ -86,9 +86,9 @@
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChuQuyCach.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txTenQuyCach.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaQuyCach.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -156,7 +156,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.gridControl1);
+            this.groupControl1.Controls.Add(this.gridControl_DanhMucQuyCach);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
@@ -164,21 +164,22 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "DANH MỤC QUY CÁCH";
             // 
-            // gridControl1
+            // gridControl_DanhMucQuyCach
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 22);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(411, 334);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl_DanhMucQuyCach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_DanhMucQuyCach.Location = new System.Drawing.Point(2, 22);
+            this.gridControl_DanhMucQuyCach.MainView = this.gridView1;
+            this.gridControl_DanhMucQuyCach.Name = "gridControl_DanhMucQuyCach";
+            this.gridControl_DanhMucQuyCach.Size = new System.Drawing.Size(411, 334);
+            this.gridControl_DanhMucQuyCach.TabIndex = 0;
+            this.gridControl_DanhMucQuyCach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridControl_DanhMucQuyCach;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // panelControl5
             // 
@@ -203,7 +204,7 @@
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.btXoa);
-            this.groupControl2.Controls.Add(this.btHuy);
+            this.groupControl2.Controls.Add(this.btThoat);
             this.groupControl2.Controls.Add(this.btLuu);
             this.groupControl2.Controls.Add(this.btChinhSua);
             this.groupControl2.Controls.Add(this.btTaoMoi);
@@ -223,16 +224,18 @@
             this.btXoa.Size = new System.Drawing.Size(63, 56);
             this.btXoa.TabIndex = 15;
             this.btXoa.Text = "Xóa";
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
-            // btHuy
+            // btThoat
             // 
-            this.btHuy.Image = ((System.Drawing.Image)(resources.GetObject("btHuy.Image")));
-            this.btHuy.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btHuy.Location = new System.Drawing.Point(99, 95);
-            this.btHuy.Name = "btHuy";
-            this.btHuy.Size = new System.Drawing.Size(63, 56);
-            this.btHuy.TabIndex = 12;
-            this.btHuy.Text = "Hủy";
+            this.btThoat.Image = ((System.Drawing.Image)(resources.GetObject("btThoat.Image")));
+            this.btThoat.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btThoat.Location = new System.Drawing.Point(99, 95);
+            this.btThoat.Name = "btThoat";
+            this.btThoat.Size = new System.Drawing.Size(63, 56);
+            this.btThoat.TabIndex = 12;
+            this.btThoat.Text = "Thoát";
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // btLuu
             // 
@@ -241,8 +244,9 @@
             this.btLuu.Location = new System.Drawing.Point(168, 96);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(63, 56);
-            this.btLuu.TabIndex = 11;
+            this.btLuu.TabIndex = 2;
             this.btLuu.Text = "Lưu";
+            this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
             // btChinhSua
             // 
@@ -253,6 +257,7 @@
             this.btChinhSua.Size = new System.Drawing.Size(63, 56);
             this.btChinhSua.TabIndex = 14;
             this.btChinhSua.Text = "Chỉnh Sửa";
+            this.btChinhSua.Click += new System.EventHandler(this.btChinhSua_Click);
             // 
             // btTaoMoi
             // 
@@ -263,6 +268,7 @@
             this.btTaoMoi.Size = new System.Drawing.Size(63, 56);
             this.btTaoMoi.TabIndex = 13;
             this.btTaoMoi.Text = "Tạo Mới";
+            this.btTaoMoi.Click += new System.EventHandler(this.btTaoMoi_Click);
             // 
             // panelControl8
             // 
@@ -295,9 +301,9 @@
             // 
             // layoutControl3
             // 
-            this.layoutControl3.Controls.Add(this.textEdit3);
-            this.layoutControl3.Controls.Add(this.textEdit2);
-            this.layoutControl3.Controls.Add(this.textEdit1);
+            this.layoutControl3.Controls.Add(this.txtGhiChuQuyCach);
+            this.layoutControl3.Controls.Add(this.txTenQuyCach);
+            this.layoutControl3.Controls.Add(this.txtMaQuyCach);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(2, 2);
             this.layoutControl3.Name = "layoutControl3";
@@ -306,29 +312,29 @@
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // textEdit3
+            // txtGhiChuQuyCach
             // 
-            this.textEdit3.Location = new System.Drawing.Point(83, 60);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(216, 20);
-            this.textEdit3.StyleController = this.layoutControl3;
-            this.textEdit3.TabIndex = 6;
+            this.txtGhiChuQuyCach.Location = new System.Drawing.Point(83, 60);
+            this.txtGhiChuQuyCach.Name = "txtGhiChuQuyCach";
+            this.txtGhiChuQuyCach.Size = new System.Drawing.Size(216, 20);
+            this.txtGhiChuQuyCach.StyleController = this.layoutControl3;
+            this.txtGhiChuQuyCach.TabIndex = 1;
             // 
-            // textEdit2
+            // txTenQuyCach
             // 
-            this.textEdit2.Location = new System.Drawing.Point(83, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(216, 20);
-            this.textEdit2.StyleController = this.layoutControl3;
-            this.textEdit2.TabIndex = 5;
+            this.txTenQuyCach.Location = new System.Drawing.Point(83, 36);
+            this.txTenQuyCach.Name = "txTenQuyCach";
+            this.txTenQuyCach.Size = new System.Drawing.Size(216, 20);
+            this.txTenQuyCach.StyleController = this.layoutControl3;
+            this.txTenQuyCach.TabIndex = 0;
             // 
-            // textEdit1
+            // txtMaQuyCach
             // 
-            this.textEdit1.Location = new System.Drawing.Point(83, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(216, 20);
-            this.textEdit1.StyleController = this.layoutControl3;
-            this.textEdit1.TabIndex = 4;
+            this.txtMaQuyCach.Location = new System.Drawing.Point(83, 12);
+            this.txtMaQuyCach.Name = "txtMaQuyCach";
+            this.txtMaQuyCach.Size = new System.Drawing.Size(216, 20);
+            this.txtMaQuyCach.StyleController = this.layoutControl3;
+            this.txtMaQuyCach.TabIndex = 4;
             // 
             // layoutControlGroup3
             // 
@@ -345,7 +351,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
+            this.layoutControlItem1.Control = this.txtMaQuyCach;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(291, 24);
@@ -354,7 +360,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit2;
+            this.layoutControlItem2.Control = this.txTenQuyCach;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(291, 24);
@@ -363,7 +369,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit3;
+            this.layoutControlItem3.Control = this.txtGhiChuQuyCach;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(291, 41);
@@ -432,6 +438,7 @@
             // 
             // XtraForm_QuyCach
             // 
+            this.AcceptButton = this.btTaoMoi;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1346, 457);
@@ -439,7 +446,8 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XtraForm_QuyCach";
-            this.Text = "XtraForm_QuyCach";
+            this.Text = "Danh Mục Quy Cách";
+            this.Load += new System.EventHandler(this.XtraForm_QuyCach_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -450,7 +458,7 @@
             this.panelControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_DanhMucQuyCach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
@@ -465,9 +473,9 @@
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChuQuyCach.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txTenQuyCach.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaQuyCach.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -506,18 +514,18 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtGhiChuQuyCach;
+        private DevExpress.XtraEditors.TextEdit txTenQuyCach;
+        private DevExpress.XtraEditors.TextEdit txtMaQuyCach;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.SimpleButton btXoa;
-        private DevExpress.XtraEditors.SimpleButton btHuy;
+        private DevExpress.XtraEditors.SimpleButton btThoat;
         private DevExpress.XtraEditors.SimpleButton btLuu;
         private DevExpress.XtraEditors.SimpleButton btChinhSua;
         private DevExpress.XtraEditors.SimpleButton btTaoMoi;
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        public DevExpress.XtraGrid.GridControl gridControl_DanhMucQuyCach;
     }
 }

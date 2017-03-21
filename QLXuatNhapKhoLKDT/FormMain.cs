@@ -205,20 +205,42 @@ namespace QLXuatNhapKhoLKDT
 
         private void barButtonItem87_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //Xóa userid
+            UserId = "";
+
             //Ẩn Form chính khi chưa đăng nhập
             this.Visible = false;
 
             //Load form login hệ thống -- đăng nhập
             XtraForm_DangNhap form = new XtraForm_DangNhap();
             form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+                this.Close();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                this.Visible = true;
 
-            //Trả giá trị của UserID về rỗng
-            UserId = "";
+                //Khởi tạo đối tượng phân quyền
+                PhanQuyen = new ClassPhanQuyen();
+
+                //Gọi hàm tắt tất cả chức năng hệ thông khi chưa phân quyền
+                PhanQuyen.TatChucNangHeThong(this);
+
+                //Gọi hàm load form info
+                LoadForm_Info();
+
+                //Load info thông tin user và chức vụ phía dưới trang chủ
+                lbl_TenNV.Text = "Nhân Viên: " + ClassDangNhap.TenUser;
+                lbl_ChucVu.Text = "Chức Vụ: " + ClassDangNhap.ChucVu;
+
+                //Phân quyền sau khi đăng nhập vào hệ thống
+                PhanQuyen.ThucHienPhanQuyen(this);
+            }
         }
 
         private void barButtonItem89_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraForm_DoiMatKhau form = new XtraForm_DoiMatKhau();
+            XtraForm_DoiMatKhau form = new XtraForm_DoiMatKhau(this);
             this.Enabled = false;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
@@ -321,6 +343,15 @@ namespace QLXuatNhapKhoLKDT
             form = new XtraForm_NghiepVuNhapKho();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void barButtonItem88_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult thongbao = MessageBox.Show("Bạn có muốn thoát khỏi chương trình ?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            if (thongbao == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

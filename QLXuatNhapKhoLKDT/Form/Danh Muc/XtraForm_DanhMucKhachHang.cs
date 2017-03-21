@@ -17,5 +17,16 @@ namespace QLXuatNhapKhoLKDT.Form.Danh_Muc
         {
             InitializeComponent();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            XtraForm_LoaiKhachHang form = new XtraForm_LoaiKhachHang();
+            this.Enabled = false;
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.Cancel)
+            {
+                this.Enabled = true;
+            }
+        }
     }
 }

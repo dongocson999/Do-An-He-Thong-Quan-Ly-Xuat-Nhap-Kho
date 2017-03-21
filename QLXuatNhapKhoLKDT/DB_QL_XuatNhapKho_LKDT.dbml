@@ -110,10 +110,11 @@
     <Type Name="LINHKIEN">
       <Column Name="MA_LK" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TEN_LK" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="THOIGIAN_BH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TRONGLUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="THOIGIAN_BH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONGIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DUOCPHEPDOITRA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="HINHANH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Column Name="TINHNANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MAQC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MANSX" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
@@ -164,7 +165,7 @@
       <Column Name="DIACHI_TAMTRU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DIACHI_THUONGTRU" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DIENTHOAI" Type="System.String" DbType="Char(11)" CanBeNull="true" />
-      <Column Name="HINHANH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="USERNAME" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
       <Column Name="MANHOMQUYEN" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
@@ -180,8 +181,8 @@
   <Table Name="dbo.NHASANXUAT" Member="NHASANXUATs">
     <Type Name="NHASANXUAT">
       <Column Name="MANSX" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENNSX" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="QUOCGIA" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="TENNSX" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QUOCGIA" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Association Name="NHASANXUAT_LINHKIEN" Member="LINHKIENs" ThisKey="MANSX" OtherKey="MANSX" Type="LINHKIEN" />
     </Type>
   </Table>
@@ -331,18 +332,114 @@
       <Column Name="NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.LAY_DANHMUC_LINHKIEN" Method="LAY_DANHMUC_LINHKIEN">
-    <ElementType Name="LAY_DANHMUC_LINHKIENResult">
+  <Function Name="dbo.LAY_DANHMUC_CHITIET_PHIEUNHAP" Method="LAY_DANHMUC_CHITIET_PHIEUNHAP">
+    <Parameter Name="SOPHIEUNHAP" Parameter="sOPHIEUNHAP" Type="System.String" DbType="VarChar(5)" />
+    <ElementType Name="LAY_DANHMUC_CHITIET_PHIEUNHAPResult">
+      <Column Name="SOPHIEUNHAP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MA_LK" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLUONGNHAP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONGIANHAP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHIETKHAU" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MA_LK1" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="TEN_LK" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="THOIGIAN_BH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TRONGLUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="THOIGIAN_BH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONGIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DUOCPHEPDOITRA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="HINHANH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Column Name="TINHNANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MAQC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MANSX" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MALOAI" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MAQC1" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENQUYCACH" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="GHICHU" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_GIA" Method="LAY_DANHMUC_GIA">
+    <ElementType Name="LAY_DANHMUC_GIAResult">
+      <Column Name="MA_LK" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TEN_LK" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENQUYCACH" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DONGIANHAP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHIETKHAU" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GIAXUATBAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHENHLECH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHENHLECHSAUCHIETKHAU" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_KHO" Method="LAY_DANHMUC_KHO">
+    <ElementType Name="LAY_DANHMUC_KHOResult">
+      <Column Name="MAKHOHANG" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENKHOHANG" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIENTHOAI" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="GHICHU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MALOAI" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_LINHKIEN" Method="LAY_DANHMUC_LINHKIEN">
+    <ElementType Name="LAY_DANHMUC_LINHKIENResult">
+      <Column Name="MA_LK" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TEN_LK" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TRONGLUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="THOIGIAN_BH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONGIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DUOCPHEPDOITRA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TINHNANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MAQC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MANSX" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MALOAI" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_LOAIKHACHHANG" Method="LAY_DANHMUC_LOAIKHACHHANG">
+    <ElementType Name="LAY_DANHMUC_LOAIKHACHHANGResult">
+      <Column Name="MALOAIKH" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENLOAIKHACHHANG" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GHICHU" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_LOAILINHKIEN" Method="LAY_DANHMUC_LOAILINHKIEN">
+    <ElementType Name="LAY_DANHMUC_LOAILINHKIENResult">
+      <Column Name="MALOAI" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENLOAI" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="GHICHU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_NHACUNGCAP" Method="LAY_DANHMUC_NHACUNGCAP">
+    <ElementType Name="LAY_DANHMUC_NHACUNGCAPResult">
+      <Column Name="MANCC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNCC" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIENTHOAI" Type="System.String" DbType="Char(11) NOT NULL" CanBeNull="false" />
+      <Column Name="FAX" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="MASOTHUE" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_NHANVIEN" Method="LAY_DANHMUC_NHANVIEN">
+    <ElementType Name="LAY_DANHMUC_NHANVIENResult">
+      <Column Name="MANV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNV" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CMND_CANCUOC" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHI_TAMTRU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIACHI_THUONGTRU" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIENTHOAI" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="MANHOMQUYEN" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_NHASANXUAT" Method="LAY_DANHMUC_NHASANXUAT">
+    <ElementType Name="LAY_DANHMUC_NHASANXUATResult">
+      <Column Name="MANSX" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNSX" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QUOCGIA" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.LAY_DANHMUC_NHOMQUYEN" Method="LAY_DANHMUC_NHOMQUYEN">
@@ -358,6 +455,9 @@
       <Column Name="NGAYNHAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LYDONHAP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="TONGTGNHAP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MANCC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKHOHANG" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.LAY_DANHMUC_PHIEUNHAP_QUANLY" Method="LAY_DANHMUC_PHIEUNHAP_QUANLY">
@@ -370,6 +470,13 @@
       <Column Name="MANV" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MANCC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MAKHOHANG" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LAY_DANHMUC_QUYCACH" Method="LAY_DANHMUC_QUYCACH">
+    <ElementType Name="LAY_DANHMUC_QUYCACHResult">
+      <Column Name="MAQC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TENQUYCACH" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="GHICHU" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.LAY_PAGES_PHANQUYEN" Method="LAY_PAGES_PHANQUYEN">
@@ -427,6 +534,10 @@
   <Function Name="dbo.XOA_CHUCNANG_CUA_NHOMQUYEN" Method="XOA_CHUCNANG_CUA_NHOMQUYEN">
     <Parameter Name="MANHOMQUYEN" Parameter="mANHOMQUYEN" Type="System.String" DbType="Char(5)" />
     <Parameter Name="STT_CHUCNANG" Parameter="sTT_CHUCNANG" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LAY_DONGIA_NHAP" Method="LAY_DONGIA_NHAP" IsComposable="true">
+    <Parameter Name="MALK" Parameter="mALK" Type="System.String" DbType="VarChar(5)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.LAYMATUDONG" Method="LAYMATUDONG" IsComposable="true">

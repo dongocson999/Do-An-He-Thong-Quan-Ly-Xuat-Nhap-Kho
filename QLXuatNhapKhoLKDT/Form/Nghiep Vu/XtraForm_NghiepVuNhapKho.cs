@@ -17,16 +17,33 @@ namespace QLXuatNhapKhoLKDT.Form.Nghiep_Vu
         //Khởi tạo đối tượng nghiệp vụ nhập phiếu 
         ClassNghiepVuNhap NghiepVuNhap;
 
+        //Tạo biến tạo mới
+        bool TaoMoi = false;
+
         public XtraForm_NghiepVuNhapKho()
         {
             InitializeComponent();
-            NghiepVuNhap = new ClassNghiepVuNhap();
+            
         }
 
         private void XtraForm_NghiepVuNhapKho_Load(object sender, EventArgs e)
         {
+            NghiepVuNhap = new ClassNghiepVuNhap();
+
             //Gọi hàm resetform trả về form ban đầu khi mới load form
             ResetForm();
+
+            //Loaddata lên form phiếu nhập
+            LoadData();
+        }
+
+        //Load dữ liệu lên form phiếu nhập
+        public void LoadData()
+        {
+            var dulieu = NghiepVuNhap.LayDuLieuPhieuNhap();
+            gridControl_DanhMucPhieuNhap.DataSource = dulieu;
+
+            NghiepVuNhap.LoadDataToCombo(this);
         }
 
         //ResetForm
@@ -36,13 +53,13 @@ namespace QLXuatNhapKhoLKDT.Form.Nghiep_Vu
             btTaoMoi.Enabled = true;
             btChinhSua.Enabled = false;
             btLuu.Enabled = false;
-            btXoa.Enabled = false;
             btXuatExcel.Enabled = true;
             btChiTietPhieuNhap.Enabled = false;
+            btXem.Enabled = false;
 
             //Xóa rỗng các textbox
-            txtTimNhaCungCap.Text = "";
-            txtTimKhoHang.Text = "";
+            comboKhoHang.Text = "";
+            comboNCC.Text = "";
             txtMaNVLapPhieu.Enabled = false;
             txtMaNVLapPhieu.Text = "";
             txtLyDoNhap.Text = "";
@@ -50,19 +67,22 @@ namespace QLXuatNhapKhoLKDT.Form.Nghiep_Vu
             //Gán text ban đầu cho button TaoMoi
             btTaoMoi.Text = "Tạo Mới";
 
-            //Gán thuộc tính đầu tiên cho MaNCC và MaKho bằng rỗng
-            mancc = "";
-            makho = "";
+            //Gán biến tạo mới
+            TaoMoi = false;
+
+            txtSoPhieuNhap.Enabled = false;
         }
 
         private void btTaoMoi_Click(object sender, EventArgs e)
         {
+            //Gán biến tạo mới 
+            TaoMoi = true;
+
             //Bật tắt các button khác
             btTaoMoi.Enabled = false;
             btTaoMoi.Text = "Đang Tạo";
             btChinhSua.Enabled = false;
-            btXoa.Enabled = false;
-            btLuu.Enabled = true;
+            btLuu.Enabled = false;
             btXuatExcel.Enabled = false;
             btChiTietPhieuNhap.Enabled = true;
 
@@ -70,35 +90,109 @@ namespace QLXuatNhapKhoLKDT.Form.Nghiep_Vu
             txtMaNVLapPhieu.Text = FormMain.UserId;
 
             //Đặt focus tại textbox nhà cung cấp
-            txtTimNhaCungCap.Focus();
+            comboNCC.Focus();
+
+            //Load dữ liệu cho textbox số phiếu nhập
+            txtSoPhieuNhap.Text = NghiepVuNhap.CapMaSoPhieuNhap();
         }
 
 
-        //Tạo 2 biến lưu MãNCC và MãKho
-        string mancc = "";
-        string makho = "";
-
         private void btChiTietPhieuNhap_Click(object sender, EventArgs e)
         {
-            //Lấy giá trị vừa tìm được trên form Nghiệp Vụ Nhập để đưa qua form Chi Tiết phiếu nhập
-            var ncc = txtTimNhaCungCap.Text.Split('-');
-            mancc = ncc[0].ToString().Trim();
+            try
+            {
+                //Lấy Số phiếu nhập được cấp tự động từ hệ thống
+                string sophieu = gridView1.GetFocusedRowCellValue("SOPHIEUNHAP").ToString();
 
-            var kho = txtTimKhoHang.Text.Split('-');
-            makho = kho[0].ToString().Trim();
+                //Gọi form chi tiết phiếu nhập và đưa dữ liệu tìm được qua
+                XtraForm_NghiepVuNhapChiTiet frm = new XtraForm_NghiepVuNhapChiTiet(sophieu, false);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
-            string lydo = txtLyDoNhap.Text;
+        private void btChinhSua_Click(object sender, EventArgs e)
+        {
+            //Gán biến tạo mới
+            TaoMoi = false;
 
-            DateTime ngaylap = DateTime.Parse(dateTimePicker1.Text);
+            //Bật tắt chức năng tương ứng
+            btTaoMoi.Enabled = false;
+            btLuu.Enabled = true;
+            btChinhSua.Enabled = false;
+            btXuatExcel.Enabled = false;
+            btChiTietPhieuNhap.Enabled = false;
 
-            //Lấy Số phiếu nhập được cấp tự động từ hệ thống
-            string sophieu = NghiepVuNhap.LaySoPhieuNhap();
+            //Load dữ liệu lên textbox từ gridcontrol
+            txtSoPhieuNhap.Text = gridView1.GetFocusedRowCellValue("SOPHIEUNHAP").ToString();
+            comboNCC.SelectedValue = gridView1.GetFocusedRowCellValue("MANCC").ToString();
+            comboKhoHang.SelectedValue = gridView1.GetFocusedRowCellValue("MAKHOHANG").ToString();
+            txtMaNVLapPhieu.Text = FormMain.UserId;
+            dateTimePicker1.Text = gridView1.GetFocusedRowCellValue("NGAYNHAP").ToString();
+            txtLyDoNhap.Text = gridView1.GetFocusedRowCellValue("LYDONHAP").ToString();
+        }
 
-            //Gọi form chi tiết phiếu nhập và đưa dữ liệu tìm được qua
-            XtraForm_NghiepVuNhapChiTiet frm = new XtraForm_NghiepVuNhapChiTiet();
-            frm = new XtraForm_NghiepVuNhapChiTiet();
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (TaoMoi == false)
+            {
+                btChinhSua.Enabled = true;
+                btXem.Enabled = true;
+            }
+        }
+
+        private void btXem_Click(object sender, EventArgs e)
+        {
+            string sophieunhap = gridView1.GetFocusedRowCellValue("SOPHIEUNHAP").ToString();
+            NghiepVuNhap.LoadDataChiTietPhieuNhap(this,sophieunhap);
+        }
+
+        private void btLuu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Lấy giá trị vừa tìm được trên form Nghiệp Vụ Nhập để đưa qua form Chi Tiết phiếu nhập
+                string mancc = comboNCC.SelectedValue.ToString();
+
+                string makho = comboKhoHang.SelectedValue.ToString();
+
+                string lydo = txtLyDoNhap.Text;
+
+                DateTime ngaylap = DateTime.Parse(dateTimePicker1.Text);
+
+                //Lấy Số phiếu nhập được cấp tự động từ hệ thống
+                string sophieu = txtSoPhieuNhap.Text;
+
+                if (TaoMoi == true)
+                {
+                    //Gọi form chi tiết phiếu nhập và đưa dữ liệu tìm được qua
+                    XtraForm_NghiepVuNhapChiTiet frm = new XtraForm_NghiepVuNhapChiTiet(sophieu, mancc, makho, lydo, ngaylap, true);
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
+                    //Load lại dữ liệu sau khi thêm
+                    LoadData();
+
+                    ResetForm();
+                }
+                else
+                {
+                    NghiepVuNhap.SuaPhieuNhap(sophieu,ngaylap,lydo,mancc,makho);
+
+                    //Load lại dữ liệu sau khi thêm
+                    LoadData();
+
+                    ResetForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

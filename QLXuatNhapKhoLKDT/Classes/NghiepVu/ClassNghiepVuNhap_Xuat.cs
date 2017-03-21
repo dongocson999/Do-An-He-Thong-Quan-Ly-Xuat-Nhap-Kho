@@ -24,8 +24,6 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
 
 
         //Tạo biến lưu danh mục dùng để tìm kiếm CSDL PHIEUNHAP bao gồm: <Số Phiếu> - <Ngày Lập>
-        
-
         public List<string> LoadDataToListPhieuNhap()
         {
             List<string> DanhSachPhieuNhap = new List<string>(); //Lưu dưới dạng "Số_Phiếu - Ngày_Lập"
@@ -41,8 +39,6 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
         }
 
         //Tạo danh sách lưu danh mục linh kiện tìm kiếm theo <Mã LK> - <Tên LK> - <Đơn Vị Tính>
-        
-
         public List<string> LoadDataToListLinhKien()
         {
             List<string> DanhSachLinhKien = new List<string>();//Lưu dưới dạng "Mã_LK - Tên_LK - QuyCach"

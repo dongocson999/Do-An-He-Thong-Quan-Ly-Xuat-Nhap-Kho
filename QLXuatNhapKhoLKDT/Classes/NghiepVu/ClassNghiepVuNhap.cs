@@ -48,6 +48,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
             DanhSachLinhKien = Nhap_Xuat.LoadDataToListLinhKien();
         }
 
+
         //Hàm tìm kiếm dữ liệu trả về chuỗi tìm thấy
         public string TimKiem_LinhKien(string chuoi)
         {
@@ -63,7 +64,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
 
 
         //Hàm lấy số phiếu nhập khi thêm 1 phiếu nhập mới
-        public string LaySoPhieuNhap()
+        public string CapMaSoPhieuNhap()
         {
             string kq = Data.CapMaTuDong("PN");
             return kq;
@@ -77,10 +78,9 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
 
 
         //Hàm trả về dữ liệu là danh sách phiếu nhập cho form Nghiệp Vụ Phiếu Nhập
-        public object LayDuLieuPhieuNhap(FormMain frm)
+        public object LayDuLieuPhieuNhap()
         {
-            NHANVIEN nv = Data.Database().NHANVIENs.SingleOrDefault(a => a.MANV == FormMain.UserId);
-            if (nv.MANV == "NQ001")
+            if (FormMain.UserId == "NQ001")
             {
                 var dulieu = Data.Database().LAY_DANHMUC_PHIEUNHAP_QUANLY().ToList();
                 return dulieu;
@@ -90,6 +90,55 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
                 var dulieu = Data.Database().LAY_DANHMUC_PHIEUNHAP_NV_THUONG().ToList();
                 return dulieu;
             }
+        }
+
+        //Hàm trả về danh mục chi tiết phiếu nhập đã chọn
+        public void LayDuLieuChiTietPhieuNhap(string sophieu, XtraForm_NghiepVuNhapChiTiet frm)
+        {
+            var dulieu = Data.Database().LAY_DANHMUC_CHITIET_PHIEUNHAP(sophieu).ToList();
+            int stt = 1;
+            foreach (var item in dulieu)
+            {
+                ClassChiTietLinhKien ct = new ClassChiTietLinhKien();
+                ct.STT = stt++;
+                ct.MaLK = item.MA_LK;
+                ct.TenLK = item.TEN_LK;
+                ct.QuyCach = item.TENQUYCACH;
+                ct.SoLuong = (int)item.SOLUONGNHAP;
+                ct.DonGia = (int)item.DONGIANHAP;
+                ct.ChietKhau = (float)item.CHIETKHAU;
+                ct.ThanhTien = ((int)item.SOLUONGNHAP *(int)item.DONGIANHAP) - ((int)item.SOLUONGNHAP * (int)item.DONGIANHAP * (float)item.CHIETKHAU);
+
+                frm.DanhSachChiTietLinhKien.Add(ct);
+            }
+        }
+
+        //Hàm load dữ liệu chi tiết phiếu nhập của phiếu nhập đã chọn
+        public void LoadDataChiTietPhieuNhap(XtraForm_NghiepVuNhapKho frm, string sophieu)
+        {
+            var dulieu = Data.Database().LAY_DANHMUC_CHITIET_PHIEUNHAP(sophieu).ToList();
+            frm.gridControl_ChiTietPhieuNhap.DataSource = dulieu;
+        }
+
+        //Hàm load dữ liệu cho combobox Kho Hang
+        public void LoadDataToCombo(XtraForm_NghiepVuNhapKho frm)
+        {
+            var dulieu1 = Data.Database().LAY_DANHMUC_KHO().ToList();
+            frm.comboKhoHang.DataSource = dulieu1;
+            frm.comboKhoHang.DisplayMember = "TENKHOHANG";
+            frm.comboKhoHang.ValueMember = "MAKHOHANG";
+
+            var dulieu2 = Data.Database().LAY_DANHMUC_NHACUNGCAP().ToList();
+            frm.comboNCC.DataSource = dulieu2;
+            frm.comboNCC.DisplayMember = "TENNCC";
+            frm.comboNCC.ValueMember = "MANCC";
+        }
+
+        //Hàm tìm kiếm mã linh kiện theo số phiếu nhập
+        public object TimKiemLinhKienTheoSoPhieuNhap(string malk, string sophieu)
+        {
+            var ob = Data.Database().CT_PHIEUNHAPs.SingleOrDefault(a => a.MA_LK == malk && a.SOPHIEUNHAP == sophieu);
+            return ob;
         }
 
         //Thêm 1 dòng dữ liệu mới vào CSDL PHIEUNHAP
@@ -113,14 +162,14 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
         }
 
         //Thêm 1 dòng dữ liệu vào CSDL Chi Tiết Phiếu Nhập
-        public void Them_CT_PhieuNhap(string sophieu, string malk, int soluong, int dongia, float chietkhau)
+        public void Them_CT_PhieuNhap(string sophieu, string malk, int soluong, int dongia, string chietkhau)
         {
             try
             {
                 if (KiemTra_ChiTiet_PhieuNhap(soluong,dongia,chietkhau) == true)
                 {
                     //Thêm 1 dòng dữ liệu vào trong CSDL chi tiết phiếu nhập
-                    Data.Database().THEM_CHITIET_PHIEUNHAP(sophieu,malk,soluong,dongia,chietkhau);
+                    Data.Database().THEM_CHITIET_PHIEUNHAP(sophieu,malk,soluong,dongia,float.Parse(chietkhau));
                 }
             }
             catch (Exception ex)
@@ -233,7 +282,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
         }
 
         //Chỉnh Sửa 1 dòng dữ liệu trong CSDL Chi Tiết Phiếu Nhập
-        public void Sua_ChiTiet_PhieuNhap(string sophieunhap, string malk, int soluong, int dongia, float chietkhau)
+        public void Sua_ChiTiet_PhieuNhap(string sophieunhap, string malk, int soluong, int dongia, string chietkhau)
         {
             try
             {
@@ -244,7 +293,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
                     {
                         ct.SOLUONGNHAP = soluong;
                         ct.DONGIANHAP = dongia;
-                        ct.CHIETKHAU = chietkhau;
+                        ct.CHIETKHAU = float.Parse(chietkhau);
 
                         Data.Database().SubmitChanges();
 
@@ -315,7 +364,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
 
 
         //Kiểm tra dữ liệu khi thêm chi tiết phiếu nhập
-        private bool KiemTra_ChiTiet_PhieuNhap(int soluong, int dongia, float chietkhau)
+        private bool KiemTra_ChiTiet_PhieuNhap(int soluong, int dongia, string chietkhau)
         {
             bool kt = true;
             string kq = "Thông báo: ";
@@ -355,7 +404,7 @@ namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
             }
             else
             {
-                if (chietkhau < 0)
+                if (float.Parse(chietkhau) < 0)
                 {
                     kt = false;
                     kq += "\n - Chiết khấu không được phép âm.";

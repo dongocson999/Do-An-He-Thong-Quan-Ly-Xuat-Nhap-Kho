@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLXuatNhapKhoLKDT.Classes.NghiepVu
 {
-    class ClassChiTietLinhKien
+    public class ClassChiTietLinhKien
     {
         public int STT { get; set; }
         public string MaLK { get; set; }

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation3 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
-            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation4 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation1 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
+            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation2 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.popupMenu_TongHop = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItem_MenuPupop_HeThong = new DevExpress.XtraBars.BarButtonItem();
@@ -223,7 +223,6 @@
             this.barButtonItem126 = new DevExpress.XtraBars.BarButtonItem();
             this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem127 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem131 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem132 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
@@ -532,7 +531,6 @@
             this.barButtonItem126,
             this.barLinkContainerItem1,
             this.barStaticItem1,
-            this.barButtonItem127,
             this.barButtonItem128,
             this.barButtonItem129,
             this.barButtonItem130,
@@ -846,9 +844,7 @@
             this.barSubItem7.Id = 51;
             this.barSubItem7.LargeGlyph = global::QLXuatNhapKhoLKDT.Properties.Resources.Office_Customer_Male_Light_icon;
             this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem23),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem24),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem25)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem23)});
             this.barSubItem7.Name = "barSubItem7";
             this.barSubItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -1014,8 +1010,7 @@
             this.barSubItem11.Id = 73;
             this.barSubItem11.LargeGlyph = global::QLXuatNhapKhoLKDT.Properties.Resources._201573016235293;
             this.barSubItem11.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem39),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem39)});
             this.barSubItem11.Name = "barSubItem11";
             this.barSubItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -1278,9 +1273,9 @@
             // 
             // 
             // 
-            galleryItemGroup2.Caption = "Group1";
+            galleryItemGroup1.Caption = "Group1";
             this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.ribbonGalleryBarItem1.Id = 8;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
@@ -1558,6 +1553,7 @@
             this.barButtonItem88.Caption = "Thoát";
             this.barButtonItem88.Id = 4;
             this.barButtonItem88.Name = "barButtonItem88";
+            this.barButtonItem88.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem88_ItemClick);
             // 
             // barButtonItem64
             // 
@@ -2161,12 +2157,6 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barButtonItem127
-            // 
-            this.barButtonItem127.Caption = "barButtonItem127";
-            this.barButtonItem127.Id = 75;
-            this.barButtonItem127.Name = "barButtonItem127";
-            // 
             // barButtonItem131
             // 
             this.barButtonItem131.Caption = "Cài Đặt Chung";
@@ -2202,18 +2192,18 @@
             this.ribbonPageGroup_QuanLyTaiKhoan,
             this.ribbonPageGroup_ThongTinChung});
             this.ribbonPage_HeThong.Name = "ribbonPage_HeThong";
-            reduceOperation3.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
-            reduceOperation3.Group = null;
-            reduceOperation3.ItemLinkIndex = 0;
-            reduceOperation3.ItemLinksCount = 0;
-            reduceOperation3.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.LargeButtons;
-            reduceOperation4.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
-            reduceOperation4.Group = null;
-            reduceOperation4.ItemLinkIndex = 0;
-            reduceOperation4.ItemLinksCount = 0;
-            reduceOperation4.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.LargeButtons;
-            this.ribbonPage_HeThong.ReduceOperations.Add(reduceOperation3);
-            this.ribbonPage_HeThong.ReduceOperations.Add(reduceOperation4);
+            reduceOperation1.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
+            reduceOperation1.Group = null;
+            reduceOperation1.ItemLinkIndex = 0;
+            reduceOperation1.ItemLinksCount = 0;
+            reduceOperation1.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.LargeButtons;
+            reduceOperation2.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
+            reduceOperation2.Group = null;
+            reduceOperation2.ItemLinkIndex = 0;
+            reduceOperation2.ItemLinksCount = 0;
+            reduceOperation2.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.LargeButtons;
+            this.ribbonPage_HeThong.ReduceOperations.Add(reduceOperation1);
+            this.ribbonPage_HeThong.ReduceOperations.Add(reduceOperation2);
             this.ribbonPage_HeThong.Text = "Hệ Thống";
             // 
             // ribbonPageGroup_HeThong
@@ -2230,9 +2220,9 @@
             this.ribbonPageGroup_PhanQuyen.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup_PhanQuyen.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup_PhanQuyen.Name = "ribbonPageGroup_PhanQuyen";
-            toolTipTitleItem2.Text = "Danh Mục Phân Quyền Nhân Viên\r\n";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            this.ribbonPageGroup_PhanQuyen.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Danh Mục Phân Quyền Nhân Viên\r\n";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            this.ribbonPageGroup_PhanQuyen.SuperTip = superToolTip1;
             this.ribbonPageGroup_PhanQuyen.Text = "Phân Quyền";
             // 
             // ribbonPageGroup_QuanLyTaiKhoan
@@ -2461,7 +2451,6 @@
             // 
             this.ribbonPageGroup_BCThuChiTongHop.AllowTextClipping = false;
             this.ribbonPageGroup_BCThuChiTongHop.ItemLinks.Add(this.barSubItem22);
-            this.ribbonPageGroup_BCThuChiTongHop.ItemLinks.Add(this.barButtonItem127);
             this.ribbonPageGroup_BCThuChiTongHop.Name = "ribbonPageGroup_BCThuChiTongHop";
             this.ribbonPageGroup_BCThuChiTongHop.Text = "Báo Cáo Thu - Chi Tổng Hợp";
             // 
@@ -3185,7 +3174,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem128;
         private DevExpress.XtraBars.BarButtonItem barButtonItem129;
         private DevExpress.XtraBars.BarButtonItem barButtonItem130;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem127;
         private DevExpress.XtraBars.BarButtonItem barButtonItem131;
         private DevExpress.XtraBars.BarButtonItem barButtonItem132;
         private DevExpress.XtraBars.Ribbon.RadialMenu radialMenu_CongCu;

@@ -192,10 +192,10 @@
             // gridControl_DanhMucKhachHang
             // 
             this.gridControl_DanhMucKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_DanhMucKhachHang.Location = new System.Drawing.Point(2, 20);
+            this.gridControl_DanhMucKhachHang.Location = new System.Drawing.Point(2, 22);
             this.gridControl_DanhMucKhachHang.MainView = this.gridView1;
             this.gridControl_DanhMucKhachHang.Name = "gridControl_DanhMucKhachHang";
-            this.gridControl_DanhMucKhachHang.Size = new System.Drawing.Size(767, 379);
+            this.gridControl_DanhMucKhachHang.Size = new System.Drawing.Size(767, 377);
             this.gridControl_DanhMucKhachHang.TabIndex = 0;
             this.gridControl_DanhMucKhachHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -366,6 +366,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(76, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 20;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl4
             // 

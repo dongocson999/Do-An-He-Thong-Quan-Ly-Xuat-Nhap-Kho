@@ -47,6 +47,7 @@
             this.btTaoMoi = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.comboTimLinhKien = new System.Windows.Forms.ComboBox();
             this.txtThanhTien = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.txtDonGia = new DevExpress.XtraEditors.TextEdit();
             this.btThemLinhKien = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTimLinhKien = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -85,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTimLinhKien.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -265,6 +264,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.comboTimLinhKien);
             this.groupControl1.Controls.Add(this.txtThanhTien);
             this.groupControl1.Controls.Add(this.label6);
             this.groupControl1.Controls.Add(this.label5);
@@ -275,13 +275,21 @@
             this.groupControl1.Controls.Add(this.groupControl4);
             this.groupControl1.Controls.Add(this.btThemLinhKien);
             this.groupControl1.Controls.Add(this.label1);
-            this.groupControl1.Controls.Add(this.txtTimLinhKien);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(507, 289);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông Tin Chi Tiết Nhập Phiếu";
+            // 
+            // comboTimLinhKien
+            // 
+            this.comboTimLinhKien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboTimLinhKien.FormattingEnabled = true;
+            this.comboTimLinhKien.Location = new System.Drawing.Point(93, 47);
+            this.comboTimLinhKien.Name = "comboTimLinhKien";
+            this.comboTimLinhKien.Size = new System.Drawing.Size(322, 27);
+            this.comboTimLinhKien.TabIndex = 10;
             // 
             // txtThanhTien
             // 
@@ -408,18 +416,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Linh Kiện:";
             // 
-            // txtTimLinhKien
-            // 
-            this.txtTimLinhKien.Location = new System.Drawing.Point(93, 48);
-            this.txtTimLinhKien.Name = "txtTimLinhKien";
-            this.txtTimLinhKien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimLinhKien.Properties.Appearance.Options.UseFont = true;
-            this.txtTimLinhKien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtTimLinhKien.Size = new System.Drawing.Size(322, 26);
-            this.txtTimLinhKien.TabIndex = 0;
-            this.txtTimLinhKien.EditValueChanged += new System.EventHandler(this.txtTimLinhKiem_EditValueChanged);
-            // 
             // XtraForm_NghiepVuNhapChiTiet
             // 
             this.AcceptButton = this.btTaoMoi;
@@ -460,7 +456,6 @@
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTimLinhKien.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,12 +486,12 @@
         private DevExpress.XtraEditors.TextEdit txtDonGia;
         private DevExpress.XtraEditors.SimpleButton btThemLinhKien;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.ButtonEdit txtTimLinhKien;
         private DevExpress.XtraEditors.SimpleButton btXoa;
         private DevExpress.XtraEditors.SimpleButton btLuu;
         private DevExpress.XtraEditors.SimpleButton btChinhSua;
         private DevExpress.XtraEditors.SimpleButton btTaoMoi;
         private DevExpress.XtraEditors.DropDownButton btChonNguon;
         private DevExpress.XtraEditors.SimpleButton btHoanThanh;
+        private System.Windows.Forms.ComboBox comboTimLinhKien;
     }
 }

@@ -26,7 +26,7 @@ namespace QLXuatNhapKhoLKDT.Form.Danh_Muc
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             
-            loailk.Themloai(textEdit2.Text, textEdit3.Text);
+            loailk.ThemLoai(textEdit1.Text,textEdit2.Text,textEdit3.Text);
             loailk.LoadData(this);
         }
 
@@ -40,7 +40,7 @@ namespace QLXuatNhapKhoLKDT.Form.Danh_Muc
         {
             string malk = textEdit1.Text;
             textEdit1.Enabled = false;
-            loailk.Sualoai(textEdit2.Text, textEdit3.Text);
+            loailk.SuaLoai(textEdit1.Text,textEdit2.Text, textEdit3.Text);
             loailk.LoadData(this);
         }
 
@@ -52,7 +52,7 @@ namespace QLXuatNhapKhoLKDT.Form.Danh_Muc
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            loailk.Xoaloai();
+            loailk.XoaLoai(textEdit1.Text);
             loailk.LoadData(this);
         }
 
