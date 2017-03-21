@@ -136,11 +136,11 @@
             // gridControl_DanhMucLoaiLinhKien
             // 
             this.gridControl_DanhMucLoaiLinhKien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_DanhMucLoaiLinhKien.Location = new System.Drawing.Point(2, 22);
+            this.gridControl_DanhMucLoaiLinhKien.Location = new System.Drawing.Point(2, 20);
             this.gridControl_DanhMucLoaiLinhKien.MainView = this.gridView1;
             this.gridControl_DanhMucLoaiLinhKien.MenuManager = this.ribbon;
             this.gridControl_DanhMucLoaiLinhKien.Name = "gridControl_DanhMucLoaiLinhKien";
-            this.gridControl_DanhMucLoaiLinhKien.Size = new System.Drawing.Size(383, 195);
+            this.gridControl_DanhMucLoaiLinhKien.Size = new System.Drawing.Size(383, 197);
             this.gridControl_DanhMucLoaiLinhKien.TabIndex = 0;
             this.gridControl_DanhMucLoaiLinhKien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -149,6 +149,7 @@
             // 
             this.gridView1.GridControl = this.gridControl_DanhMucLoaiLinhKien;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // panelControl2
             // 
@@ -191,6 +192,7 @@
             this.simpleButton4.Size = new System.Drawing.Size(53, 53);
             this.simpleButton4.TabIndex = 3;
             this.simpleButton4.Text = "Xóa";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton3
             // 
@@ -201,6 +203,7 @@
             this.simpleButton3.Size = new System.Drawing.Size(53, 53);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "Lưu";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // simpleButton2
             // 
@@ -211,6 +214,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(53, 53);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Sửa";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton1
             // 
@@ -221,6 +225,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(53, 53);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Thêm";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // panelControl4
             // 
@@ -329,11 +334,12 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ribbon);
-            this.MaximumSize = new System.Drawing.Size(711, 317);
-            this.MinimumSize = new System.Drawing.Size(711, 317);
+            this.MaximumSize = new System.Drawing.Size(713, 318);
+            this.MinimumSize = new System.Drawing.Size(713, 318);
             this.Name = "XtraForm_LoaiLKDT";
             this.Ribbon = this.ribbon;
             this.Text = "XtraForm_LoaiLKDT";
+            this.Load += new System.EventHandler(this.XtraForm_LoaiLKDT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -391,7 +397,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraGrid.GridControl gridControl_DanhMucLoaiLinhKien;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        public DevExpress.XtraGrid.GridControl gridControl_DanhMucLoaiLinhKien;
     }
 }

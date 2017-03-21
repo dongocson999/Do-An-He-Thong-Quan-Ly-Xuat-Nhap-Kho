@@ -50,13 +50,14 @@ namespace QLXuatNhapKhoLKDT.Classes.DanhMuc
                 MessageBox.Show(ex.ToString());
             }
         }
-        public void SuaLK()
+        string malk;
+        public void SuaLK(string mansx, string maloai, string tenlk, DateTime thoigianbh, string tinhnang, float trongluong, bool duocphepdoitra, string hinhanh, string maquycach)
         {
             try
             {
 
-                LINHKIEN lk =  //Khai báo biến lk
-                
+                LINHKIEN lk = Data.Database().LINHKIENs.SingleOrDefault(a => a.MA_LK == malk);//Khai báo biến lk
+                lk.MANSX = mansx;
                 lk.MALOAI = maloai;
                 lk.TEN_LK = tenlk;
                 lk.THOIGIAN_BH = thoigianbh;
@@ -71,6 +72,25 @@ namespace QLXuatNhapKhoLKDT.Classes.DanhMuc
                     
                     Data.Database().SubmitChanges();
                     
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        public void XoaLK()
+        {
+            try
+            {
+
+                LINHKIEN lk = Data.Database().LINHKIENs.SingleOrDefault(a => a.MA_LK == malk);//Khai báo biến lk
+                DialogResult thongbao = MessageBox.Show("Bạn có muốn xóa linh kiện này ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (thongbao == DialogResult.Yes)
+                {
+                    Data.Database().LINHKIENs.DeleteOnSubmit(lk);
+                    Data.Database().SubmitChanges();
+
                 }
             }
             catch (Exception ex)
