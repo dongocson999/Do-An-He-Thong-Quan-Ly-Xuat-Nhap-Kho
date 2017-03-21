@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D2D3E24-F737-4C3A-9EAD-1F08E9A8F354}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLXuatNhapKhoLKDT</RootNamespace>
+    <AssemblyName>QLXuatNhapKhoLKDT</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v16.1" />
+    <Reference Include="DevExpress.Data.v16.1" />
+    <Reference Include="DevExpress.Printing.v16.1.Core" />
+    <Reference Include="DevExpress.Utils.v16.1" />
+    <Reference Include="DevExpress.XtraBars.v16.1" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v16.1" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\EMGUCV 3.0\emgucv-windesktop 3.1.0.2504\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\DanhMuc\ClassDanhMucGia.cs" />
+    <Compile Include="Classes\DanhMuc\ClassLoaiKhachHang.cs" />
+    <Compile Include="Classes\DanhMuc\ClassLoaiLinhKien.cs" />
+    <Compile Include="Classes\DanhMuc\ClassNhaSanXuat.cs" />
+    <Compile Include="Classes\DanhMuc\ClassQuyCach.cs" />
+    <Compile Include="Classes\HeThong\ClassDangNhap.cs" />
+    <Compile Include="Classes\HeThong\ClassDoiMatKhau.cs" />
+    <Compile Include="Classes\HeThong\ClassQuanLyNguoiDung.cs" />
+    <Compile Include="Classes\HeThong\ClassThongTinTaiKhoan.cs" />
+    <Compile Include="Classes\NghiepVu\ClassChiTietLinhKien.cs" />
+    <Compile Include="Classes\NghiepVu\ClassNghiepVuNhap.cs" />
+    <Compile Include="Classes\NghiepVu\ClassNghiepVuNhap_Xuat.cs" />
+    <Compile Include="Classes\NhomQuyen\ChucNangNhomQuyen.cs" />
+    <Compile Include="Classes\NhomQuyen\NhomQuyen.cs" />
+    <Compile Include="ClassPhanQuyen.cs" />
+    <Compile Include="ConnectToDatabase.cs" />
+    <Compile Include="DB_QL_XuatNhapKho_LKDT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_QL_XuatNhapKho_LKDT.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfo\ClassThongTinChung.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucGia.Designer.cs">
+      <DependentUpon>XtraForm_DanhMucGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucKhachHang.Designer.cs">
+      <DependentUpon>XtraForm_DanhMucKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucKho.Designer.cs">
+      <DependentUpon>XtraForm_DanhMucKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_DanhMucNhaCungCap.Designer.cs">
+      <DependentUpon>XtraForm_DanhMucNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LKDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LKDT.Designer.cs">
+      <DependentUpon>XtraForm_LKDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LoaiKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LoaiKhachHang.Designer.cs">
+      <DependentUpon>XtraForm_LoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LoaiLKDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_LoaiLKDT.Designer.cs">
+      <DependentUpon>XtraForm_LoaiLKDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_NhaSanXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_NhaSanXuat.Designer.cs">
+      <DependentUpon>XtraForm_NhaSanXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_QuyCach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Danh Muc\XtraForm_QuyCach.Designer.cs">
+      <DependentUpon>XtraForm_QuyCach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_DangNhap.Designer.cs">
+      <DependentUpon>XtraForm_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_DoiMatKhau.Designer.cs">
+      <DependentUpon>XtraForm_DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_PhanQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_PhanQuyen.Designer.cs">
+      <DependentUpon>XtraForm_PhanQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_QLNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_QLNguoiDung.Designer.cs">
+      <DependentUpon>XtraForm_QLNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_ThongTinTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\He Thong\XtraForm_ThongTinTaiKhoan.Designer.cs">
+      <DependentUpon>XtraForm_ThongTinTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapChiTiet.Designer.cs">
+      <DependentUpon>XtraForm_NghiepVuNhapChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapKho.Designer.cs">
+      <DependentUpon>XtraForm_NghiepVuNhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormInfo\XtraForm_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo\XtraForm_Info.Designer.cs">
+      <DependentUpon>XtraForm_Info.cs</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="DB_QL_XuatNhapKho_LKDT.dbml.layout">
+      <DependentUpon>DB_QL_XuatNhapKho_LKDT.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_DanhMucGia.resx">
+      <DependentUpon>XtraForm_DanhMucGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_DanhMucKhachHang.resx">
+      <DependentUpon>XtraForm_DanhMucKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_DanhMucKho.resx">
+      <DependentUpon>XtraForm_DanhMucKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_DanhMucNhaCungCap.resx">
+      <DependentUpon>XtraForm_DanhMucNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_LKDT.resx">
+      <DependentUpon>XtraForm_LKDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_LoaiKhachHang.resx">
+      <DependentUpon>XtraForm_LoaiKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_LoaiLKDT.resx">
+      <DependentUpon>XtraForm_LoaiLKDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_NhaSanXuat.resx">
+      <DependentUpon>XtraForm_NhaSanXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Danh Muc\XtraForm_QuyCach.resx">
+      <DependentUpon>XtraForm_QuyCach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\He Thong\XtraForm_DangNhap.resx">
+      <DependentUpon>XtraForm_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\He Thong\XtraForm_DoiMatKhau.resx">
+      <DependentUpon>XtraForm_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\He Thong\XtraForm_PhanQuyen.resx">
+      <DependentUpon>XtraForm_PhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\He Thong\XtraForm_QLNguoiDung.resx">
+      <DependentUpon>XtraForm_QLNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\He Thong\XtraForm_ThongTinTaiKhoan.resx">
+      <DependentUpon>XtraForm_ThongTinTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapChiTiet.resx">
+      <DependentUpon>XtraForm_NghiepVuNhapChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Nghiep Vu\XtraForm_NghiepVuNhapKho.resx">
+      <DependentUpon>XtraForm_NghiepVuNhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormInfo\XtraForm_Info.resx">
+      <DependentUpon>XtraForm_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DB_QL_XuatNhapKho_LKDT.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DB_QL_XuatNhapKho_LKDT.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-system-shutdown-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relationship-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process-info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apps-preferences-desktop-user-password-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chip-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yq3cBwTP6DKS1Ux5CB9dFPxLwwOysM9qccD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Preppy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gifts-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Panel-truck-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Office-Customer-Male-Light-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action-db-update-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action-db-commit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Documents-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Downloads-Black-Folder-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Upload-Folder-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SEO-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money-Pig-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money-Calculator-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\201573016235293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timer-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Categories-preferences-system-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-send-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Export-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Import-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System-Key-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Form\Bao Hanh\" />
+    <Folder Include="Form\Cong Cu\" />
+    <Folder Include="Images\LinhKien\" />
+    <Folder Include="Images\NhanVien\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
